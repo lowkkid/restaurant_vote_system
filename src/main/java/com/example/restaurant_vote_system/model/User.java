@@ -15,5 +15,6 @@ public class User extends AbstractNamedEntity {
 
     private Set<Role> roles;
 
+    private Vote vote;
 
 }

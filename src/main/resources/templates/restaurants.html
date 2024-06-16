@@ -1,0 +1,12 @@
+<h1 th:text="${restaurants_list.size()}"></h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+    </tr>
+    <tr th:each="rest : ${restaurants_list}">
+        <td th:text="${rest.id}">Onions</td>
+        <td th:text="${rest.name}">2.41</td>
+    </tr>
+</table>

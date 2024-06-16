@@ -8,5 +8,5 @@ import lombok.EqualsAndHashCode;
 @Data
 public abstract class AbstractNamedEntity extends AbstractEntity {
 
-    private String name;
+    protected String name;
 }

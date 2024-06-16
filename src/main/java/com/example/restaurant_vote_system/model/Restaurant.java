@@ -9,7 +9,16 @@ import java.util.List;
 @Data
 public class Restaurant extends AbstractNamedEntity {
 
-    List<Vote> voteList;
+    private List<Vote> voteList;
 
-    List<Dish> menu;
+    private List<Dish> menu;
+
+    public Restaurant(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Restaurant() {
+
+    }
 }
