@@ -4,9 +4,25 @@
     <tr>
         <th>ID</th>
         <th>NAME</th>
+        <th>AMOUNT OF VOTES</th>
     </tr>
     <tr th:each="rest : ${restaurants_list}">
         <td th:text="${rest.id}">Onions</td>
         <td th:text="${rest.name}">2.41</td>
+        <td th:text="${rest.voteList.size()}"></td>
+    </tr>
+</table>
+
+
+<h1 th:text="${comments_for_first.size()}"></h1>
+
+<table>
+    <tr>
+        <th>COMM</th>
+        <th>DATE</th>
+    </tr>
+    <tr th:each="comment : ${comments_for_first}">
+        <td th:text="${comment.text}">Onions</td>
+        <td th:text="${comment.dateTime}">2.41</td>
     </tr>
 </table>
