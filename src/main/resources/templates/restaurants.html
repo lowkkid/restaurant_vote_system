@@ -1,28 +1,24 @@
-<h1 th:text="${restaurants_list.size()}"></h1>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Restaurants  </title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>AMOUNT OF VOTES</th>
-    </tr>
-    <tr th:each="rest : ${restaurants_list}">
-        <td th:text="${rest.id}">Onions</td>
-        <td th:text="${rest.name}">2.41</td>
-        <td th:text="${rest.voteList.size()}"></td>
-    </tr>
-</table>
-
-
-<h1 th:text="${comments_for_first.size()}"></h1>
-
-<table>
-    <tr>
-        <th>COMM</th>
-        <th>DATE</th>
-    </tr>
-    <tr th:each="comment : ${comments_for_first}">
-        <td th:text="${comment.text}">Onions</td>
-        <td th:text="${comment.dateTime}">2.41</td>
-    </tr>
-</table>
+<body>
+<div class="restaurant-container">
+    <div th:each="restaurant : ${restaurants_list}" class="restaurant-card">
+        <img th:src="@{'/images/' + ${restaurant.id} + '.jpg'}" alt="Image for Restaurant"/>
+        <h2 th:text="${restaurant.name}"></h2>
+        <ul>
+            <li th:each="dish : ${restaurant.menu}">
+                <span th:text="${dish.name}"></span>
+                <span> : </span>
+                <span th:text="${dish.price}"></span>
+            </li>
+        </ul>
+        <div class="restaurant-card-votes">Amount of votes for this restaurant today is: <span th:text="${restaurant.voteList.size()}"/></div>
+    </div>
+</div>
+</body>
