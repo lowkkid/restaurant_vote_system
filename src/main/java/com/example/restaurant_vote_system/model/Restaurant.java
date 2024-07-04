@@ -10,8 +10,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name="restaurants")
-public class Restaurant extends AbstractNamedEntity {
+@Table(name="restaurant")
+public class Restaurant extends AbstractNamedBaseEntity {
 
     @OneToMany(mappedBy = "restaurant")
     private List<Vote> voteList;

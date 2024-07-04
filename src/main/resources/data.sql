@@ -1,11 +1,11 @@
-INSERT INTO restaurants (name) VALUES
+INSERT INTO restaurant (name) VALUES
                                        ('Sunrise Bistro'),
                                        ('Ocean Breeze Café'),
                                        ('Mountain View Grill'),
                                        ('Urban Delight Diner'),
                                        ('Lakeside Eatery');
 
-INSERT INTO dishes (name, price, restaurant_id) VALUES
+INSERT INTO dish (name, price, restaurant_id) VALUES
                                                         ('Avocado Toast', 10.00, 100000),
                                                         ('Pancake Stack', 15.00, 100000),
                                                         ('Seafood Platter', 25.00, 100001),
@@ -34,11 +34,11 @@ VALUES (100022, 'USER'),
        (100023, 'ADMIN'),
        (100023, 'USER');
 
-INSERT INTO votes (id, restaurant_id, date_time)
+INSERT INTO vote (id, restaurant_id, date_time)
 VALUES (100022, 100000, '2024-06-01 08:30:00'),
        (100023, 100000, '2024-06-01 07:30:00');
 
-INSERT INTO comments (text, user_id, restaurant_id, date_time) VALUES
+INSERT INTO comment (text, user_id, restaurant_id, date_time) VALUES
                                                                    ('Amazing breakfast options and friendly staff!', 100022, 100000, '2024-06-01 08:30:00'),
                                                                    ('Loved the avocado toast. Highly recommend!', 100023, 100000, '2024-06-02 09:15:00'),
                                                                    ('Great place for brunch with friends.', 100024, 100000, '2024-06-03 10:00:00'),

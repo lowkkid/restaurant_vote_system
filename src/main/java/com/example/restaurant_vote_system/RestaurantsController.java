@@ -3,7 +3,7 @@ package com.example.restaurant_vote_system;
 
 import com.example.restaurant_vote_system.model.Comment;
 import com.example.restaurant_vote_system.model.Restaurant;
-import com.example.restaurant_vote_system.repository.RestaurantsRepository;
+import com.example.restaurant_vote_system.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,12 +15,12 @@ import java.util.List;
 @Controller
 public class RestaurantsController {
 
-    private final RestaurantsRepository restaurantsRepository;
+    private final RestaurantRepository restaurantRepository;
 
 
     @Autowired
-    public RestaurantsController(RestaurantsRepository restaurantsRepository) {
-        this.restaurantsRepository = restaurantsRepository;
+    public RestaurantsController(RestaurantRepository restaurantRepository) {
+        this.restaurantRepository = restaurantRepository;
     }
 
     @GetMapping("/restaurants")
@@ -30,13 +30,13 @@ public class RestaurantsController {
 
     @ModelAttribute(name = "restaurants_list")
     public List<Restaurant> addRestaurantList(Model model) {
-        return restaurantsRepository.findAll();
+        return restaurantRepository.findAll();
     }
 
 
     @ModelAttribute(name = "comments_for_first")
     public List<Comment> getCommentsForFirst(Model model) {
-        return restaurantsRepository.findAll().get(0).getComments();
+        return restaurantRepository.findAll().get(0).getComments();
     }
 
 

@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @MappedSuperclass
-public abstract class AbstractNamedEntity extends AbstractEntity {
+public abstract class AbstractNamedBaseEntity extends AbstractBaseEntity {
 
     protected String name;
 }

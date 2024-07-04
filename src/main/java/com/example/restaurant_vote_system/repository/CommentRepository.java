@@ -4,7 +4,7 @@ import com.example.restaurant_vote_system.model.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface CommentsRepository extends JpaRepository<Comment, Integer> {
+public interface CommentRepository extends JpaRepository<Comment, Integer> {
 
 
 }

@@ -13,16 +13,16 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
 @Entity
-@Table(name = "votes")
-public class Vote extends AbstractEntity {
+@Table(name = "vote")
+public class Vote extends AbstractBaseEntity {
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id", nullable = false)
     private final User user;
 
     private final LocalDateTime dateTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
     private final Restaurant restaurant;
 }

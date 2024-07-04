@@ -1,9 +1,6 @@
 package com.example.restaurant_vote_system.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,16 +13,16 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
 @Entity
-@Table(name = "comments")
-public class Comment extends AbstractEntity {
+@Table(name = "comment")
+public class Comment extends AbstractBaseEntity {
 
     private final String text;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private final User user;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
     private final Restaurant restaurant;
 
