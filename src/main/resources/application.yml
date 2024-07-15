@@ -4,10 +4,16 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/restaurant_vote_system
-    username: postgres
-    password: postgres
+    username: user
+    password: password
   sql:
     init:
       mode: always
       schema-locations: classpath:schema.sql
       data-locations: classpath:data.sql
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true

@@ -30,13 +30,13 @@ public class RestaurantsController {
 
     @ModelAttribute(name = "restaurants_list")
     public List<Restaurant> addRestaurantList(Model model) {
-        return restaurantRepository.findAll();
+        return restaurantRepository.getAll();
     }
 
 
     @ModelAttribute(name = "comments_for_first")
     public List<Comment> getCommentsForFirst(Model model) {
-        return restaurantRepository.findAll().get(0).getComments();
+        return null;
     }
 
 

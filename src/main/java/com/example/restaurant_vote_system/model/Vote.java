@@ -18,11 +18,21 @@ public class Vote extends AbstractBaseEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id", nullable = false)
-    private final User user;
+    private User user;
 
-    private final LocalDateTime dateTime;
+    private LocalDateTime dateTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
-    private final Restaurant restaurant;
+    private Restaurant restaurant;
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "id=" + id +
+                ", restaurant=" + restaurant +
+                ", dateTime=" + dateTime +
+                ", user=" + user +
+                '}';
+    }
 }

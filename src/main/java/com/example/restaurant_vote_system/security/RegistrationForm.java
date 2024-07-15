@@ -17,9 +17,10 @@ public class RegistrationForm {
 
     public User toUser(PasswordEncoder passwordEncoder) {
         log.info("Accepted values:" + username + ", " + email + ", " + password);
-        return new User(
-                username,
-                email ,
-                passwordEncoder.encode(password));
+//        return new User(
+//                username,
+//                email ,
+//                passwordEncoder.encode(password));
+        return null;
     }
 }

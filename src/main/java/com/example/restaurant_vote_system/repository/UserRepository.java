@@ -6,7 +6,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository {
 
-    User findByName(String name);
+    User save(User user);
+
+    boolean delete(int id);
+
+    User get(int id);
+
+    User getByName(String name);
+
+    List<User> getAll();
 }

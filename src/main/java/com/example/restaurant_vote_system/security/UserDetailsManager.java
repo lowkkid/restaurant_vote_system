@@ -27,7 +27,7 @@ public class UserDetailsManager
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
 
-       User user = userRepository.findByName(username);
+       User user = userRepository.getByName(username);
 
         if (user != null) {
             return new AuthUser(user);

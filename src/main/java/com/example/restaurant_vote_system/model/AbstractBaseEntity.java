@@ -3,6 +3,7 @@ package com.example.restaurant_vote_system.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.Hibernate;
 import org.springframework.util.Assert;
 
 
@@ -17,6 +18,14 @@ public abstract class AbstractBaseEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "global_seq")
     protected Integer id;
 
+    protected AbstractBaseEntity() {
+    }
+
+    protected AbstractBaseEntity(Integer id) {
+        this.id = id;
+    }
+
+
     public boolean isNew() {
         return this.id == null;
     }
@@ -27,19 +36,21 @@ public abstract class AbstractBaseEntity {
     }
 
     @Override
+    public String toString() {
+        return getClass().getSimpleName() + ":" + id;
+    }
+
+    //  https://jpa-buddy.com/blog/hopefully-the-final-article-about-equals-and-hashcode-for-jpa-entities-with-db-generated-ids/
+    @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        AbstractBaseEntity that = (AbstractBaseEntity) o;
-        return id != null && id.equals(that.id);
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        return id != null && id.equals(((AbstractBaseEntity) o).id);
     }
 
     @Override
     public int hashCode() {
-        return id == null ? 0 : id;
+        return Hibernate.getClass(this).hashCode();
     }
+
 }
